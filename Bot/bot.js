@@ -1,5 +1,5 @@
 const { Telegraf } = require("telegraf");
-const BOT_TOKEN = "5584878083:AAG5QV3IUtFrG_Aks6Lw2GpDivf5H9IwfCI";
+const BOT_TOKEN = "5652910016:AAH-TGC0tKm7CxVyeOuvqqh0NCI_aNG9wbo";
 const bot = new Telegraf(BOT_TOKEN);
 const textHelp = `
 /start - Start bot
