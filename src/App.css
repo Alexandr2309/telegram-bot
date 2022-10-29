@@ -1,0 +1,34 @@
+body {
+  background-color: #3a3a3c;
+  color: #fff;
+}
+.openmap-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 40px;
+}
+.openmap-container-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 10px;
+
+  width: 80%;
+
+  font-family: "Source Sans Pro";
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.2px;
+
+  border: none;
+  background: orange;
+  color: white;
+  font-size: medium;
+  padding: 10px 15px 10px 15px;
+  border-radius: 20px;
+}

@@ -1,0 +1,55 @@
+.container-map {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.map {
+  width: 80%;
+  height: 100%;
+}
+.container-search {
+  width: 80%;
+}
+.search-address {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 10px;
+}
+.search-address-input {
+  width: 65%;
+  height: 31px;
+  border-radius: 15px;
+  padding-left: 10px;
+  margin-right: 10px;
+}
+.search-address-button {
+  width: 30%;
+
+  border: none;
+
+  font-family: "Source Sans Pro";
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.2px;
+
+  background: orange;
+  color: white;
+  font-size: medium;
+  padding: 10px 15px 10px 15px;
+  border-radius: 20px;
+}
+.search-address-result {
+  position: absolute;
+  top: 47px;
+  left: 0px;
+  width: 70%;
+  background-color: black;
+  z-index: 1001;
+}
