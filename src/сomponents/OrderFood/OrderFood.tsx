@@ -49,7 +49,7 @@ export const OrderFood = ( {
                   </div>
                 </div>
                 <div className="your-order__cart-item__price">
-                  {convertSATSToAED(item.price) * item.count} SATS
+                  {convertSATSToAED(item.price) * item.count} AED
                 </div>
               </div>
             );
