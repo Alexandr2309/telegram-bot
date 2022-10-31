@@ -1,13 +1,14 @@
 import "./OrderFood.css";
 import { IOrder } from "../../types/foodOrder.interface";
 import { url } from "../../services/getProducts";
-import { convertSATSToAED } from "../../shared/lib/convert";
+import { IPayMethod, PayMethod } from "../PayMethodToggler/PayMethodToggle";
 
 interface IOrderFoodProps {
   cartItems: IOrder[];
   setIsOrderFood: React.Dispatch<React.SetStateAction<boolean>>;
   comments: string;
   setComments: React.Dispatch<React.SetStateAction<string>>;
+  payMethod: IPayMethod
 }
 
 export const OrderFood = ( {
@@ -15,6 +16,7 @@ export const OrderFood = ( {
                              setIsOrderFood,
                              comments,
                              setComments,
+                             payMethod
                            }: IOrderFoodProps ): JSX.Element => {
   return (
     <div className="your-order__wrapper">
@@ -49,7 +51,10 @@ export const OrderFood = ( {
                   </div>
                 </div>
                 <div className="your-order__cart-item__price">
-                  {convertSATSToAED(item.price) * item.count} AED
+                  {payMethod.currency === PayMethod.AED
+                    ? item.price * item.count + ' AED'
+                    : Math.ceil(item.price * item.count / payMethod.satoshi) + ' SATS'
+                  }
                 </div>
               </div>
             );

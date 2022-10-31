@@ -1,0 +1,35 @@
+.pay-method-container {
+  margin: 20px;
+  padding: 0 15px;
+}
+
+.pay-method-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.pay-method-btn {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+
+  font-family: "Source Sans Pro";
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.2px;
+
+  border: none;
+  background: orange;
+  color: white;
+  font-size: medium;
+  padding: 10px 15px 10px 15px;
+  border-radius: 20px;
+  transition: 0.25s ease-in-out;
+}
+
+.pay-method-btn.active {
+  background: #41a6f0;
+}

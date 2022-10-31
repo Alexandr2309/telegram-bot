@@ -31,4 +31,8 @@ body {
   font-size: medium;
   padding: 10px 15px 10px 15px;
   border-radius: 20px;
+  transition: 0.2s ease;
+}
+.openmap-container-button:hover {
+  background: #cc8302;
 }
