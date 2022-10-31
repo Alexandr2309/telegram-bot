@@ -2,7 +2,6 @@ import {useEffect, useState} from "react";
 import "./App.css";
 import {Menu} from "./сomponents/Menu/Menu";
 import {OrderFood} from "./сomponents/OrderFood/OrderFood";
-import {OpenStreetMapComponent} from "./сomponents/OpenStreetMap/OpenStreetMapComponent";
 import {getProducts} from "./services/getProducts";
 import {
   getCartsFromSessionStorge,
@@ -10,7 +9,8 @@ import {
   setProductsToSessionStorge,
 } from "./services/sessionStorage";
 import {currencySatoshiFromAED} from "./services/getCurrency";
-import PayMethodToggle, {IPayMethod, PayMethod} from "./сomponents/PayMethodToggler/PayMethodToggle";
+import PayMethodToggle, {PayMethod} from "./сomponents/PayMethodToggler/PayMethodToggle";
+import {OpenStreetMapComponent} from "./сomponents/OpenStreetMap/OpenStreetMapComponent";
 
 const tele = window.Telegram.WebApp;
 
@@ -68,7 +68,7 @@ function App() {
         return acc;
       }, 0);
       tele.MainButton.text = payMethod?.currency === PayMethod?.AED
-        ? `Pay ${Math.ceil(totalPrice)} 'AED'`
+        ? `Pay ${Math.ceil(totalPrice)} AED`
         : `Pay ${Math.ceil(totalPrice / payMethod.satoshi)} SATS`
       tele.MainButton.show();
       tele.MainButton.onClick(onClickMainButton);
@@ -116,7 +116,10 @@ function App() {
             setIsOrderFood={setIsOrderFood}
             payMethod={payMethod}
           />
-          <PayMethodToggle onClickHandler={setPayMethod} currentValue={payMethod}/>
+          <PayMethodToggle
+            onClickHandler={setPayMethod}
+            currentValue={payMethod}
+          />
           <div className="openmap-container">
             <button
               className="openmap-container-button"

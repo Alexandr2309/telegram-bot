@@ -86,7 +86,14 @@
   font-size: large;
   padding: 0px 10px 0px 10px;
   border-radius: 10px;
+  transition: transform 0.15s ease;
 }
+
+.btn-container .btn-plus:hover,
+.btn-container .btn-minus:hover {
+  transform: scale3d(1.05, 1.05, 1.05);
+}
+
 .btn-container .btn-minus {
   padding: 0px 12px 0px 12px;
 }

@@ -23,6 +23,7 @@
 .pay-method__buttons {
   width: 100%;
   display: flex;
+  gap: 15px;
 }
 
 .pay-method-btn {
@@ -32,7 +33,7 @@
   align-items: center;
 
   flex: 0 1 50%;
-
+  cursor: pointer;
   font-family: "Source Sans Pro";
   font-weight: 500;
   font-size: 14px;
@@ -44,9 +45,16 @@
   font-size: medium;
   padding: 10px 15px 10px 15px;
   border-radius: 20px;
-  transition: 0.25s ease-in-out;
+  transition: 0.15s ease-in-out;
+}
+
+.pay-method-btn:hover {
+  background: #cc8302;;
 }
 
 .pay-method-btn.active {
   background: #41a6f0;
+}
+.pay-method-btn.active:hover {
+  background: #3394dc;
 }

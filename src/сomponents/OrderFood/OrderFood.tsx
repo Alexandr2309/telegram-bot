@@ -61,7 +61,6 @@ export const OrderFood = ( {
             );
           })}
         </div>
-
         <textarea
           className="your-order__textarea"
           placeholder="Add comment..."

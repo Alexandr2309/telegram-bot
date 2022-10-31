@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './PayMethodToggle.css';
 
 export enum PayMethod {
@@ -12,16 +12,15 @@ export interface IPayMethod {
 }
 
 interface IPayMethodToggleProps {
-  onClickHandler: ( value: IPayMethod ) => void;
+  onClickHandler: React.Dispatch<React.SetStateAction<IPayMethod>>;
   currentValue: IPayMethod
 }
 
-const PayMethodToggle = ( props: IPayMethodToggleProps ) => {
+const PayMethodToggle = memo(( props: IPayMethodToggleProps ) => {
   const { onClickHandler, currentValue } = props;
   return (
     <div className="pay-method__wrapper">
       <div className="pay-method-container">
-
         <h3 className="pay-method-title">Выберите способ оплаты</h3>
         <div className="pay-method__buttons">
           <button
@@ -42,6 +41,6 @@ const PayMethodToggle = ( props: IPayMethodToggleProps ) => {
       </div>
     </div>
   );
-};
+});
 
 export default PayMethodToggle;

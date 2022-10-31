@@ -33,7 +33,7 @@ export const Menu = ({
     }
   }, [foods.length]);
 
-  const onAdd = (food: IProduct) => {
+  const onAdd = useCallback((food: IProduct) => {
     const exist = cartItems.find((x) => x.product_id === food.product_id);
     if (exist) {
       const updatedCart = cartItems.map((x) =>
@@ -47,9 +47,9 @@ export const Menu = ({
       setCartItems([...cartItems, {...food, count: 1}]);
       setCartsToSessionStorge([...cartItems, {...food, count: 1}]);
     }
-  };
+  }, [cartItems]);
 
-  const onRemove = (food: IProduct) => {
+  const onRemove = useCallback((food: IProduct) => {
     const exist = cartItems.find((x) => x.product_id === food.product_id);
     if (exist && exist.count === 1) {
       const updatedCart = cartItems.filter(
@@ -68,7 +68,7 @@ export const Menu = ({
         setCartsToSessionStorge(updatedCart);
       }
     }
-  }
+  }, [cartItems])
 
   const searchFood = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChoseCategory("all");
