@@ -18,6 +18,7 @@ export const OrderFood = ( {
                              setComments,
                              payMethod
                            }: IOrderFoodProps ): JSX.Element => {
+
   return (
     <div className="your-order__wrapper">
       <div className="your-order__container">

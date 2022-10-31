@@ -50,7 +50,7 @@ export const CardFood = ({
       </div>
       <div className="card-text">
         <span className="card__title">{name}</span>
-        <span className="card__price">{convertSATSToAED(price)} AED</span>
+        <span className="card__price">{price} AED</span>
         {count === 0 ? (
           <button className="btn-container" onClick={handleIncrement}>
             Add to Cart{" "}

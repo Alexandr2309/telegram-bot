@@ -26,6 +26,9 @@ function App() {
   useEffect(() => {
     if (getProductsFromSessionStorge()) {
       setFoods(getProductsFromSessionStorge());
+      currencySatoshiFromAED().then(course => {
+        setPayMethod({...payMethod, satoshi: course.satoshi})
+      })
     } else {
       Promise.all([getProducts(), currencySatoshiFromAED()])
         .then((response) => {
@@ -64,7 +67,7 @@ function App() {
         acc = acc + object.price * object.count;
         return acc;
       }, 0);
-      tele.MainButton.text = payMethod === PayMethod.AED
+      tele.MainButton.text = payMethod?.currency === PayMethod?.AED
         ? `Pay ${Math.ceil(totalPrice)} 'AED'`
         : `Pay ${Math.ceil(totalPrice / payMethod.satoshi)} SATS`
       tele.MainButton.show();
@@ -80,7 +83,7 @@ function App() {
     return () => {
       tele.MainButton.offClick(onClickMainButton);
     };
-  }, [cartItems, isOrderFood, comments, addressLatLon]);
+  }, [cartItems, isOrderFood, comments, addressLatLon, payMethod.currency]);
 
   function onClickMainButton() {
 
