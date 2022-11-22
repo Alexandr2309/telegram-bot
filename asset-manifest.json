@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/telegram-bot/static/css/main.d7e14ccd.css",
-    "main.js": "/telegram-bot/static/js/main.96dbe7a1.js",
+    "main.css": "/telegram-bot/static/css/main.8c17c266.css",
+    "main.js": "/telegram-bot/static/js/main.605f99e1.js",
     "index.html": "/telegram-bot/index.html",
     "static/media/loader_icon.svg": "/telegram-bot/static/media/loader_icon.7889ca703fae0de75a3d41c85d75b086.svg",
     "static/media/location_marker.svg": "/telegram-bot/static/media/location_marker.65cf02305cf4e47e4f073ea91203606a.svg",
     "static/media/arrow-right.svg": "/telegram-bot/static/media/arrow-right.5f8f56a0630661db793966345a3e786a.svg",
-    "main.d7e14ccd.css.map": "/telegram-bot/static/css/main.d7e14ccd.css.map",
-    "main.96dbe7a1.js.map": "/telegram-bot/static/js/main.96dbe7a1.js.map"
+    "main.8c17c266.css.map": "/telegram-bot/static/css/main.8c17c266.css.map",
+    "main.605f99e1.js.map": "/telegram-bot/static/js/main.605f99e1.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7e14ccd.css",
-    "static/js/main.96dbe7a1.js"
+    "static/css/main.8c17c266.css",
+    "static/js/main.605f99e1.js"
   ]
 }
