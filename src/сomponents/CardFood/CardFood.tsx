@@ -3,7 +3,6 @@ import "./CardFood.css";
 import {IOrder, IProduct} from "../../types/foodOrder.interface";
 import arrowRight from "../../images/arrow-right.svg";
 import {url} from "../../services/getProducts";
-import {convertSATSToAED} from "../../shared/lib/convert";
 
 interface ICardFoodProps {
   food: IProduct;

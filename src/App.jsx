@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import "./App.css";
-import {Menu} from "./сomponents/Menu/Menu";
 import {OrderFood} from "./сomponents/OrderFood/OrderFood";
+import {Menu} from "./сomponents/Menu/Menu";
 import {getProducts} from "./services/getProducts";
 import {
   getCartsFromSessionStorge,
@@ -22,7 +22,7 @@ function App() {
   const [addressLatLon, setAddressLatLon] = useState({lat: null, lng: null});
   const [isOpenMap, setIsOpenMap] = useState(false);
   const [payMethod, setPayMethod] = useState({currency: PayMethod.SATS, satoshi: 0})
-
+  
   useEffect(() => {
     if (getProductsFromSessionStorge()) {
       setFoods(getProductsFromSessionStorge());
@@ -56,11 +56,11 @@ function App() {
       setCartItems(getCartsFromSessionStorge());
     }
   }, []);
-
+  
   useEffect(() => {
     tele.ready();
   });
-
+  
   useEffect(() => {
     if (isOrderFood) {
       const totalPrice = cartItems.reduce((acc, object) => {
@@ -73,20 +73,20 @@ function App() {
       tele.MainButton.show();
       tele.MainButton.onClick(onClickMainButton);
     }
-
+    
     if (!isOrderFood && cartItems.length) {
       tele.MainButton.text = "VIEW ORDER";
       tele.MainButton.show();
       tele.MainButton.onClick(onClickMainButton);
     }
-
+    
     return () => {
       tele.MainButton.offClick(onClickMainButton);
     };
   }, [cartItems, isOrderFood, comments, addressLatLon, payMethod.currency]);
-
+  
   function onClickMainButton() {
-
+    
     if (!isOrderFood) {
       setIsOrderFood(true);
     }
@@ -94,17 +94,26 @@ function App() {
       const order = cartItems.map((item) => {
         return {product_id: item.product_id, count: item.count};
       });
-
+      
+      const totalPrice = cartItems.reduce((acc, object) => {
+        acc = acc + object.price * object.count;
+        return acc;
+      }, 0);
+      
       const responseForBot = {
+        sum: payMethod?.currency === PayMethod?.AED
+          ? Math.ceil(totalPrice)
+          : Math.ceil(totalPrice / payMethod.satoshi),
+        currency: payMethod?.currency,
         order: order,
         comments: comments,
         coord: {lat: addressLatLon.lat, lng: addressLatLon.lng},
       };
-
+      
       tele.sendData(JSON.stringify(responseForBot));
     }
   }
-
+  
   return (
     <>
       {isOrderFood ? (
@@ -144,6 +153,7 @@ function App() {
             setFoods={setFoods}
             cartItems={cartItems}
             setCartItems={setCartItems}
+            satoshiCourse={payMethod.satoshi || 1}
           />
         </>
       )}
